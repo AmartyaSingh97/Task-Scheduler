@@ -5,7 +5,7 @@ This repository contains the rules and code of conduct for __Develop Until 50 20
 - __[Contents](#contents)__
 - __[Requirements](#requirements)__
 - __[Few pointers](#few-pointers)__
-- __[How to submit?](#how-to-submit?)__
+- __[How to submit?](#how-to-submit)__
 - __[Rules](Develop%20until%2050%20-%20Description%20and%20Rules.pdf)__
 - __[Code of Conduct](CODE%20OF%20CONDUCT.md)__
 - __[Our Community](#our-community)__
