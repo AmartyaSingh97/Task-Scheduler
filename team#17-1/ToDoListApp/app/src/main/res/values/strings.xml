@@ -13,4 +13,8 @@
     <string name="log_in">Log In</string>
     <string name="welcome_back">Welcome Back!</string>
     <string name="Login">Login</string>
+    <string name="hello">Hello!!</string>
+    <string name="projects">Projects</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="open">Open</string>
 </resources>

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_login_to_signUp"
             app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_login_to_userProfile"
+            app:destination="@id/userProfile" />
     </fragment>
     <fragment
         android:id="@+id/signUp"
@@ -22,5 +25,13 @@
         <action
             android:id="@+id/action_signUp_to_login"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_signUp_to_userProfile"
+            app:destination="@id/userProfile" />
     </fragment>
+    <fragment
+        android:id="@+id/userProfile"
+        android:name="com.example.todolistapp.UserProfile"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
 </navigation>
