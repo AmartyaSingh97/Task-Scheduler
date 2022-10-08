@@ -46,7 +46,7 @@ Follow the instructions in order:
 
 6. Add a folder with name `team#x - {Chosen_Theme_number}` in root directory. Make sure your whole hack is in folder `team#x - {Chosen_Theme_number}`.
 
-7. Add a Readme.md file inside this folder, which should contain a google drive link with the demo video of your hack.
+7. Add a Readme.md file inside this folder, which should contain a google drive link with the demo video of your hack along with the instructions to run your hack. Feel free to include any other details in it.
 
 8. **Only for AR/VR track**, you dont have to upload your code files on GitHub rather include another google drive link in the readme containing all of your code files.
 
