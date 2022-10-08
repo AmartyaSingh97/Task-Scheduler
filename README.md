@@ -4,10 +4,10 @@ This repository contains the rules and code of conduct for __Develop Until 50 20
 ## Contents
 - __[Contents](#contents)__
 - __[Requirements](#requirements)__
-- __[Few pointers](#few-pointers-)__
-- __[How to submit?](#how-to-submit?-)__
-- __[Rules](Develop_until_50_-_Description_and_Rules.pdf)__
-- __[Code of Conduct](CODE_OF_CONDUCT.md)__
+- __[Few pointers](#few-pointers)__
+- __[How to submit?](#how-to-submit?)__
+- __[Rules](Develop%20until%2050%20-%20Description%20and%20Rules.pdf)__
+- __[Code of Conduct](CODE%20OF%20CONDUCT.md)__
 - __[Our Community](#our-community)__
 - __[Contact / Support](#contact--support)__
 
@@ -23,7 +23,7 @@ This repository contains the rules and code of conduct for __Develop Until 50 20
 - No commits after Hackathon ends will be entertained.
 - It is required from the teams to keep committing within __three__ hours of the previous commit to keep your hack backed up.  
 - Make sure your whole project is inside the folder of your team.
-- If you have time left, make sure you make a README.md 📄 😉(it will help others to understand your code)
+- If you have time left, make sure you make a README.md 📄 😉 (it will help others to understand your code)
 
 ### How to submit?
 
@@ -68,14 +68,14 @@ For making changes to PR, just keep on repeating Step 9-11.
 - Keep your content as original as possible.
 - It is allowed to use available softwares/packages as a module, but they can't be your project.
 
-### Contact / Support
-
-- Write to us at: __[codingclub@iiitvadodara.ac.in](mailto:codingclub@iiitvadodara.ac.in)__
-
 ### Our Community
 
 - Open source projects created by students at IIITV : [IIITV Open Source Org](https://github.com/iiitv)
 - Discord channel where we discuss topics related to DSA and Competitive Programming: [IIITVCC Discord Server Invite](https://discord.gg/pUPbVHF)
+
+### Contact / Support
+
+- Write to us at: __[codingclub@iiitvadodara.ac.in](mailto:codingclub@iiitvadodara.ac.in)__
 
 ### Happy Hacking! 🖖
 
