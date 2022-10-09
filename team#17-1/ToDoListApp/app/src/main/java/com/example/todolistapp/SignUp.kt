@@ -1,6 +1,7 @@
 package com.example.todolistapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,7 @@ import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class SignUp : Fragment() {
@@ -23,6 +23,8 @@ class SignUp : Fragment() {
     private var mProgressBar: ProgressBar? = null
     private var mSignUp: Button? = null
     private var fAuth : FirebaseAuth? = null
+    private var fStore : FirebaseFirestore? = null
+    private var userID : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +51,7 @@ class SignUp : Fragment() {
         fAuth = FirebaseAuth.getInstance()
 
         //Get FireStore Instance
-        val db = Firebase.firestore
+        fStore = FirebaseFirestore.getInstance()
 
         //Accessing the nav controller
         val navController = Navigation.findNavController(requireActivity(), this.id)
@@ -65,8 +67,8 @@ class SignUp : Fragment() {
 
             val email = mEmail?.text.toString().trim()
             val password = mPassword?.text.toString().trim()
-            val name = mName?.text.toString().trim()
-            val phone = mPhone?.text.toString().trim()
+            val name = mName?.text.toString()
+            val phone = mPhone?.text.toString()
 
             if (email.isEmpty()) {
                 mEmail?.error = "Email is Required."
@@ -86,15 +88,6 @@ class SignUp : Fragment() {
                 mPhone?.error = "Phone Number Must be >= 10 Characters"
                 return@setOnClickListener
             }
-            //Get Collection Reference
-            val users = db.collection("users")
-
-            //Create a new user
-            val user = hashMapOf(
-                "name" to name,
-                "email" to email,
-                "phone" to phone
-            )
 
             //Make the progress bar visible
             mProgressBar?.visibility = View.VISIBLE
@@ -104,11 +97,21 @@ class SignUp : Fragment() {
 
                 if (task.isSuccessful) {
 
-                    //Add the user to the database
-                     users.document("${fAuth?.currentUser?.uid}").set(user)
-
                     // Sign in success, go to profile fragment
                     Toast.makeText(activity, "User Created.", Toast.LENGTH_SHORT).show()
+
+                    //Add the user to the database
+                    userID = fAuth?.currentUser?.uid
+                    val documentReference = fStore?.collection("users")?.document(userID.toString())
+                    val user: MutableMap<String, Any> = HashMap()
+                    user["fName"] = name
+                    user["email"] = email
+                    user["phone"] = phone
+                    documentReference?.set(user)?.addOnSuccessListener {
+                         Log.d("TAG", "onSuccess: user Profile is created for $userID")
+                    }?.addOnFailureListener { e ->
+                        Toast.makeText(activity, "Error adding document", Toast.LENGTH_SHORT).show()
+                    }
                     navController.navigate(R.id.action_signUp_to_userProfile)
                 }
                 else {
