@@ -1,7 +1,6 @@
 package com.example.todolistapp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
-import androidx.navigation.fragment.NavHostFragment
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.google.firebase.auth.FirebaseAuth
 
 class Login : Fragment() {
@@ -19,11 +19,19 @@ class Login : Fragment() {
     private var mPassword: EditText? = null
     private var mProgressBar: ProgressBar? = null
     private var mLogin : Button? = null
-    private var mNavHostFragment: NavHostFragment? = null
     private var fAuth : FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+    }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
 
         //Get Instances
         mEmail = view?.findViewById(R.id.EmailAddress)
@@ -33,8 +41,9 @@ class Login : Fragment() {
 
         //Get Firebase Instance
         fAuth = FirebaseAuth.getInstance()
-        //Get NavHostFragment Instance
-        mNavHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.login) as NavHostFragment?
+
+        //Accessing the nav controller
+        val navController = Navigation.findNavController(requireActivity(), this.id)
 
         //Set Login Button On Click Listener
         mLogin?.setOnClickListener(View.OnClickListener {
@@ -64,7 +73,7 @@ class Login : Fragment() {
 
                     // Sign in success, go to the user profile fragment
                     Toast.makeText(context, "Logged in Successfully", Toast.LENGTH_SHORT).show()
-                    mNavHostFragment?.navController?.navigate(R.id.userProfile)
+                    navController.navigate(R.id.action_login_to_userProfile)
                 } else {
 
                     // If sign in fails, display a message to the user.
@@ -73,7 +82,7 @@ class Login : Fragment() {
                 }
             }
         })
-
+        return view
     }
 
 }

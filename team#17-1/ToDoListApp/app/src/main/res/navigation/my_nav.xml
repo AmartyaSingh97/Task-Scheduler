@@ -33,5 +33,10 @@
         android:id="@+id/userProfile"
         android:name="com.example.todolistapp.UserProfile"
         android:label="fragment_user_profile"
-        tools:layout="@layout/fragment_user_profile" />
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/action_userProfile_to_signUp"
+            app:destination="@id/signUp" />
+
+    </fragment>
 </navigation>
