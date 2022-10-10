@@ -110,14 +110,18 @@
             android:layout_height="wrap_content"
             tools:ignore="Suspicious0dp"
             android:layout_weight="2">
+
             <Button
                 android:id="@+id/cancel_btn"
-                android:text="@string/cancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/cancel"
                 android:textSize="18sp"
-                android:layout_margin="10dp"/>
+                android:textStyle="bold" />
         </RelativeLayout>
 
         <RelativeLayout

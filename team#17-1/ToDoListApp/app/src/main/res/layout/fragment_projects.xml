@@ -36,7 +36,8 @@
             android:minWidth="48dp"
             android:minHeight="48dp"
             android:src="@drawable/ic_baseline_account_circle_24"
-            app:tint="?attr/colorPrimary" />
+            app:tint="?attr/colorPrimary"
+            android:backgroundTint="@color/white"/>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -46,7 +47,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            app:layoutManager="LinearLayoutManager"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addProjectButton"

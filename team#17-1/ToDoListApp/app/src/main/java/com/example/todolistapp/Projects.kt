@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todolistapp.adapter.MyAdapter
+import com.example.todolistapp.data.ProjectsDatasource
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,19 +27,9 @@ class Projects : Fragment() {
     private var fAuth: FirebaseAuth? = null
     private var fStore: FirebaseFirestore? = null
     private var userID: String? = null
+    private var myAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>? = null
+    private var layoutManager: RecyclerView.LayoutManager? = null
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        recyclerView = view?.findViewById(R.id.recyclerView)
-        val linearLayoutManager : LinearLayoutManager = LinearLayoutManager(this.context)
-        linearLayoutManager.reverseLayout = true
-        linearLayoutManager.stackFromEnd = true
-        recyclerView?.setHasFixedSize(true)
-        recyclerView?.layoutManager = linearLayoutManager
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,14 +42,11 @@ class Projects : Fragment() {
         //Get Instances
         mImageBtn = view?.findViewById(R.id.userProfile)
         mFloatBtn = view?.findViewById(R.id.addProjectButton)
-
-        //Get Firebase Instance
         fAuth = FirebaseAuth.getInstance()
-        //Get FireStore Instance
         fStore = FirebaseFirestore.getInstance()
-
         userID = fAuth?.currentUser?.uid
 
+        recyclerView = view?.findViewById(R.id.recyclerView)
 
         //Set On Click Listeners
         mFloatBtn?.setOnClickListener {
@@ -71,6 +60,18 @@ class Projects : Fragment() {
         }
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(activity)
+            val dataSource = ProjectsDatasource()
+            val myDataset =  dataSource.loadProjects()
+            myAdapter =  MyAdapter(this!!.context, myDataset)
+            recyclerView?.adapter = myAdapter
+            recyclerView?.setHasFixedSize(true)
+        }
     }
     //Add Project
     private fun addProject(){
@@ -133,9 +134,9 @@ class Projects : Fragment() {
         }
     }
 
+    override fun onStart() {
+        super.onStart()
 
-    fun onBackPressed() {
-        requireActivity().finish()
+    }
     }
 
-}

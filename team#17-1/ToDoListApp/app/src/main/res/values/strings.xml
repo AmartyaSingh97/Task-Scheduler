@@ -26,4 +26,8 @@
     <string name="end_date">End Date</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="textview">Start Date:-</string>
+    <string name="textview2">End Date:-</string>
+    <string name="textview3">Project Name:-</string>
+    <string name="tasks">Tasks</string>
 </resources>
