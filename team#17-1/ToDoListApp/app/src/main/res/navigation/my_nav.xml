@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/signUp">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.todolistapp.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_login_to_userProfile"
+            app:destination="@id/userProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.example.todolistapp.SignUp"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUp_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_signUp_to_userProfile"
+            app:destination="@id/userProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/userProfile"
+        android:name="com.example.todolistapp.UserProfile"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" >
+        <action
+            android:id="@+id/action_userProfile_to_signUp"
+            app:destination="@id/signUp" />
+        <action
+            android:id="@+id/action_userProfile_to_projects"
+            app:destination="@id/projects" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/projects"
+        android:name="com.example.todolistapp.Projects"
+        android:label="fragment_projects"
+        tools:layout="@layout/fragment_projects" >
+        <action
+            android:id="@+id/action_projects_to_userProfile"
+            app:destination="@id/userProfile" />
+        <action
+            android:id="@+id/action_projects_to_project"
+            app:destination="@id/project" />
+    </fragment>
+    <fragment
+        android:id="@+id/project"
+        android:name="com.example.todolistapp.Project"
+        android:label="fragment_project"
+        tools:layout="@layout/fragment_project" >
+        <action
+            android:id="@+id/action_project_to_projects"
+            app:destination="@id/projects" />
+        <action
+            android:id="@+id/action_project_to_task"
+            app:destination="@id/task" />
+    </fragment>
+    <fragment
+        android:id="@+id/task"
+        android:name="com.example.todolistapp.Task"
+        android:label="fragment_task"
+        tools:layout="@layout/fragment_task" >
+        <action
+            android:id="@+id/action_task_to_project"
+            app:destination="@id/project" />
+    </fragment>
+</navigation>
