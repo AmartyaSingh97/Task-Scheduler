@@ -23,6 +23,7 @@ class UserProfile : Fragment() {
     private var fStore: FirebaseFirestore? = null
     private var userID: String? = null
     private var imageView : ImageView? = null
+    private var mProjects : TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +46,7 @@ class UserProfile : Fragment() {
         mSignOutBtn = view?.findViewById(R.id.SignOut)
         mUserName = view?.findViewById(R.id.UserName)
         imageView = view?.findViewById(R.id.imageView)
+        mProjects = view?.findViewById(R.id.Projects)
 
         //Get User ID
         userID = fAuth?.currentUser?.uid
@@ -63,6 +65,11 @@ class UserProfile : Fragment() {
         mSignOutBtn?.setOnClickListener {
             fAuth?.signOut()
             navController.navigate(R.id.action_userProfile_to_signUp)
+        }
+
+        //Set the on click listener for the projects button
+        mProjects?.setOnClickListener {
+            navController.navigate(R.id.action_userProfile_to_projects)
         }
         return view
     }
@@ -84,6 +91,9 @@ class UserProfile : Fragment() {
             .build()
 
         imageLoader.enqueue(request)
+    }
+    fun onBackPressed() {
+        requireActivity().finish()
     }
 
 }
