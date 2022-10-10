@@ -1,4 +1,4 @@
-# Develop Until 50 2022 Submission
+# To Do List App
 This repository contains the rules and code of conduct for __Develop Until 50 2022__.
 
 ## Contents
