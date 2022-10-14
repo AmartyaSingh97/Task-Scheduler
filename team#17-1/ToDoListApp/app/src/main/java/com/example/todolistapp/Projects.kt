@@ -9,8 +9,10 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todolistapp.adapter.SwipeToDeleteCallback
 import com.example.todolistapp.model.ProjectModel
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -57,13 +59,11 @@ class Projects : Fragment() {
         val layoutManager = LinearLayoutManager(context)
         layoutManager.reverseLayout = true
         layoutManager.stackFromEnd = true
-        recyclerView?.setHasFixedSize(true)
         recyclerView?.layoutManager = layoutManager
 
         loader = ProgressDialog(context)
         loader?.setMessage("Loading Projects...")
         loader?.setCancelable(false)
-        loader?.show()
 
         //Set On Click Listeners
         mFloatBtn?.setOnClickListener {
@@ -73,6 +73,7 @@ class Projects : Fragment() {
         mImageBtn?.setOnClickListener {
             navController!!.navigate(R.id.action_projects_to_userProfile)
         }
+
 
         return myView
     }
@@ -155,8 +156,12 @@ class Projects : Fragment() {
         }
     }
 
+
+
+    //Load Projects
     override fun onStart() {
         super.onStart()
+        loader?.show()
         val options : FirebaseRecyclerOptions<ProjectModel> = FirebaseRecyclerOptions.Builder<ProjectModel>()
             .setQuery(mBase!!, ProjectModel::class.java)
             .build()
@@ -172,9 +177,11 @@ class Projects : Fragment() {
                 model.getStartDate()?.let { holder.setStartDate(it) }
                 model.getEndDate()?.let { holder.setEndDate(it) }
 
+                //Going to details of project
                 holder.itemView.setOnClickListener {
                     val args = Bundle()
                     args.putString("projectName", model.getProjectName())
+                    args.putString("projectId",model.getId())
                     navController!!.navigate(R.id.action_projects_to_project,args)
                 }
             }
@@ -183,8 +190,47 @@ class Projects : Fragment() {
         recyclerView?.adapter = adapter
         adapter.startListening()
         loader?.dismiss()
+        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
     }
 
+    private val simpleItemTouchCallback = object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+       fun CallBack(dragDirs: Int, swipeDirs: Int) : Boolean {
+            return true
+        }
+
+        override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
+            return false
+        }
+
+        override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+            val position = viewHolder.adapterPosition
+            val adapter = recyclerView?.adapter as FirebaseRecyclerAdapter<*, *>
+            adapter.getRef(position).removeValue()
+            deleteProject()
+        }
+    }
+
+    //Delete Project
+    fun deleteProject(){
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Delete Project")
+        builder.setMessage("Are you sure you want to delete this project?")
+        builder.setPositiveButton("Yes"){dialog, which ->
+            val id = mBase?.push()?.key.toString()
+            mBase?.child(id)?.removeValue()?.addOnSuccessListener{
+                Toast.makeText(context, "Project Deleted", Toast.LENGTH_SHORT).show() }
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("No"){dialog, which ->
+            dialog.dismiss()
+        }
+        val dialog: AlertDialog = builder.create()
+        dialog.show()
+    }
+
+    //View Holder
        class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var mProject: TextView? = null
         private var mStartDate: TextView? = null

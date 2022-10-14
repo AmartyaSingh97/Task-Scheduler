@@ -62,17 +62,5 @@
         <action
             android:id="@+id/action_project_to_projects"
             app:destination="@id/projects" />
-        <action
-            android:id="@+id/action_project_to_task"
-            app:destination="@id/task" />
-    </fragment>
-    <fragment
-        android:id="@+id/task"
-        android:name="com.example.todolistapp.Task"
-        android:label="fragment_task"
-        tools:layout="@layout/fragment_task" >
-        <action
-            android:id="@+id/action_task_to_project"
-            app:destination="@id/project" />
     </fragment>
 </navigation>

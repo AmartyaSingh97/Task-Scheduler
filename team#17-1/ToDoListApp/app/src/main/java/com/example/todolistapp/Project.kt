@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 class Project : Fragment() {
+    var projectName : String? = null
+    var projectId : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +21,10 @@ class Project : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_project, container, false)
-        val value : String = arguments?.getString("projectName").toString()
+        projectName = arguments?.getString("projectName").toString()
+        projectId = arguments?.getString("projectId").toString()
         val mProjectName : TextView = view.findViewById(R.id.ProjectName)
-        mProjectName.text = value
+        mProjectName.text = projectName
         // Inflate the layout for this fragment
         return  view
     }

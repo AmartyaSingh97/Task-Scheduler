@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#EDF4A9"
     tools:context=".Project">
 
     <androidx.appcompat.widget.Toolbar
@@ -24,6 +25,7 @@
             android:textColor="@android:color/white"
             android:textSize="30sp"
             android:textStyle="bold" />
+
 
 
     </androidx.appcompat.widget.Toolbar>
