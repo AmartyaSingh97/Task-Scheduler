@@ -12,9 +12,6 @@ For video demo and UI images visit: -
 - User-friendly and Simple UI.
 - Crash-bug free upto max-extent.
 
-## MAD Scorecard:
- 
-
 ## Libraries
 - [Coil](https://github.com/coil-kt/coil) - Loading images.
 - [FireBase](https://firebase.google.com/) - Authentication.
