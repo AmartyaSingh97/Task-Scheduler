@@ -2,6 +2,8 @@
 
 ## About
 This to do list app is mainly focused to help open source developers to keep track of the projects they are working on and the tasks within them. The app is enabled with user authentication and real time data features. Your friend sitting somewhere else can also keep track of the projects you are working using the app. 
+For video demo and UI images visit: -
+- [Devfolio Link](https://devfolio.co/projects/to-do-list-app-06a7)
 
 
 ## Key Features:
@@ -14,18 +16,15 @@ This to do list app is mainly focused to help open source developers to keep tra
  
 
 ## Libraries
-- [Glide](https://github.com/bumptech/glide) - Loading images.
-- [Timber](https://github.com/JakeWharton/timber) - Logging.
-- [Retrofit2](https://github.com/square/retrofit) - Construct the REST APIs and paging network data.
-- [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
-- [Hilt](https://dagger.dev/hilt/) for dependency injection.
+- [Coil](https://github.com/coil-kt/coil) - Loading images.
+- [FireBase](https://firebase.google.com/) - Authentication.
+- [FireStore](https://firebase.google.com/products/firestore) - Storing and Fetching real-time data.
+- [FirebaseUI](https://github.com/firebase/FirebaseUI-Android) - Storing data from database to recyclerview. 
 - JetPack
-  - Lifecycle - dispose of observing data when lifecycle state changes.
-  - ViewModel - UI related data holder, lifecycle aware.
-  - Room Persistence - construct a database using the abstract layer.
-
-## Setup
-
+   - Recycler View
+   - Navigation
+   - LifeCycle
+ 
 #### Android Studio
 Android Studio Bumblebee or later
 SDK 19 or later
