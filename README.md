@@ -5,10 +5,10 @@ This to do list app is mainly focused to help open source developers to keep tra
 
 
 ## Key Features:
--> User Authentication enabled.
--> Real-Time database.
--> User-friendly and Simple UI.
--> Crash-bug free upto max-extent.
+- User Authentication enabled.
+- Real-Time database.
+- User-friendly and Simple UI.
+- Crash-bug free upto max-extent.
 
 ## MAD Scorecard:
  
