@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EDF4A9"
     android:orientation="vertical"
     tools:context=".Projects">
 
@@ -37,7 +38,7 @@
             android:minHeight="48dp"
             android:src="@drawable/ic_baseline_account_circle_24"
             app:tint="?attr/colorPrimary"
-            android:backgroundTint="@color/white"/>
+            android:backgroundTint="#EDF4A9"/>
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -47,19 +48,19 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="LinearLayoutManager"/>
+            android:layout_height="match_parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addProjectButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
             android:layout_gravity="bottom|end"
-            android:src="@android:drawable/ic_input_add"
+            android:layout_margin="16dp"
+            android:clickable="true"
             android:contentDescription="@string/add_input"
-            android:layout_margin="16dp" />
+            android:focusable="true"
+            android:src="@android:drawable/ic_input_add"
+            tools:ignore="ImageContrastCheck" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 
 class Task : Fragment() {
 
@@ -17,8 +18,10 @@ class Task : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_task, container, false)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_task, container, false)
+        return  view
     }
 
 }
