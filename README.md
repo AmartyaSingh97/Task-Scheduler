@@ -27,5 +27,5 @@ Android Studio Bumblebee or later
 SDK 19 or later
 
 ## Find this repository useful? :heart:
-Support it by joining __[stargazers](https://github.com/AmartyaSingh97/android-groceries-store/stargazers)__ for this repository. :star: <br>
+Support it by joining __[stargazers](https://github.com/AmartyaSingh97/android-To-Do-List-App/stargazers)__ for this repository. :star: <br>
 Also, __[follow me](https://github.com/AmartyaSingh97)__ on GitHub for my next creations! 🤩
