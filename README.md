@@ -5,6 +5,8 @@ This to do list app is mainly focused to help open source developers to keep tra
 For video demo and UI images visit: -
 - [Devfolio Link](https://devfolio.co/projects/to-do-list-app-06a7)
 
+## Prizes:
+- First Prize at Develop Until 50 organized by IIIT-Vadodara.
 
 ## Key Features:
 - User Authentication enabled.
