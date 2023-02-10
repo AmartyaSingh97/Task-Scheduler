@@ -2,8 +2,6 @@
 
 ## About
 This to do list app is mainly focused to help open source developers to keep track of the projects they are working on and the tasks within them. The app is enabled with user authentication and real time data features. Your friend sitting somewhere else can also keep track of the projects you are working using the app. 
-For video demo and UI images visit: -
-- [Devfolio Link](https://devfolio.co/projects/to-do-list-app-06a7)
 
 ## Prizes:
 - 🚀 First Prize at Develop Until 50 (48h Hackathon) organized by IIIT-Vadodara. 🤩
